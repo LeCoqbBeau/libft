@@ -6,7 +6,7 @@
 #    By: mscheman <mathieu.petru@gmail.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/01 14:21:30 by mscheman          #+#    #+#              #
-#    Updated: 2023/12/14 01:42:48 by mscheman         ###   ########.fr        #
+#    Updated: 2023/12/14 05:13:55 by mscheman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,6 +75,7 @@ $(NAME): $(LIBFT_OBJ)
 clean:
 	rm -f $(LIBFT_OBJ)
 	rm -f $(LIST_OBJ)
+	make clean -C ./PRINTF
 
 fclean: clean
 	rm -f $(NAME)
@@ -86,10 +87,11 @@ re: fclean all
 list: $(LIST_OBJ)
 	ar rcs $(NAME) $(LIST_OBJ)
 
-print: $(FULL)
+print: $(NAME)
 	make -C ./PRINTF
-	make clean -C ./PRINTF
 	mv $(PRINTF_LIB) $(NAME)
 
-full: $(NAME) $(list) $(print)
-	
+full: print list $(LIBFT_OBJ)
+	ar rcs $(NAME) $(LIBFT_OBJ)
+
+.SILENT: print, list

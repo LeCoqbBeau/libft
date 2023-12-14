@@ -6,12 +6,11 @@
 /*   By: mscheman <mathieu.petru@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 18:10:50 by LeCoqBeau         #+#    #+#             */
-/*   Updated: 2023/12/14 01:33:58 by mscheman         ###   ########.fr       */
+/*   Updated: 2023/12/14 07:16:01 by mscheman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../LIBFT/libft.h"
-
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
