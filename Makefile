@@ -6,7 +6,7 @@
 #    By: mscheman <mathieu.petru@gmail.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/01 14:21:30 by mscheman          #+#    #+#              #
-#    Updated: 2023/12/14 05:13:55 by mscheman         ###   ########.fr        #
+#    Updated: 2023/12/14 13:31:12 by mscheman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,10 +57,15 @@ LIST =	LIST/ft_lstdelone_bonus.c \
 		LIST/ft_lstsize_bonus.c \
 
 LIST_OBJ = $(LIST:.c=.o)
-
 LIBFT_OBJ = $(LIBFT:.c=.o)
 
-PRINTF_LIB = PRINTF/libftprintf.a
+PRINTF_LIB =	libftprintf.a
+PRINTF_OBJ =	ft_printf.o \
+				ft_printf_utils.o
+
+GNL_LIB =	libftgnl.a
+GNL_OBJ =	get_next_line_bonus.o \
+			get_next_line_utils_bonus.o
 
 NAME = libft.a
 
@@ -76,8 +81,11 @@ clean:
 	rm -f $(LIBFT_OBJ)
 	rm -f $(LIST_OBJ)
 	make clean -C ./PRINTF
+	make clean -C ./GNL
 
 fclean: clean
+	make fclean -C ./PRINTF
+	make fclean -C ./GNL
 	rm -f $(NAME)
 
 all: $(NAME)
@@ -89,9 +97,21 @@ list: $(LIST_OBJ)
 
 print: $(NAME)
 	make -C ./PRINTF
-	mv $(PRINTF_LIB) $(NAME)
+	mv PRINTF/$(PRINTF_LIB) -t .
+	ar x $(PRINTF_LIB)
+	ar rcs $(NAME) $(PRINTF_OBJ)
+	rm -f $(PRINTF_OBJ)
+	mv $(PRINTF_LIB) -t PRINTF/
 
-full: print list $(LIBFT_OBJ)
+gnl: $(NAME)
+	make -C ./GNL
+	mv GNL/$(GNL_LIB) -t .
+	ar x $(GNL_LIB)
+	ar rcs $(NAME) $(GNL_OBJ) 
+	rm -f $(GNL_OBJ)
+	mv $(GNL_LIB) -t GNL/
+
+full: print gnl list $(LIBFT_OBJ)
 	ar rcs $(NAME) $(LIBFT_OBJ)
 
 .SILENT: print, list
