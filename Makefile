@@ -10,6 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
+MAKEFLAGS += --silent
+
 LIBFT =	LIBFT/ft_isdigit.c \
 		LIBFT/ft_strchr.c \
 		LIBFT/ft_memchr.c \
