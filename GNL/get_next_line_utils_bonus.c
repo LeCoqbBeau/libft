@@ -6,7 +6,7 @@
 /*   By: mscheman <mscheman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 15:32:17 by mscheman          #+#    #+#             */
-/*   Updated: 2024/01/24 23:51:05 by mscheman         ###   ########.fr       */
+/*   Updated: 2024/02/17 14:36:10 by mscheman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	unsigned int	i;
 
 	i = 0;
+	if (!dest || !src)
+		return (NULL);
 	while (i < n && src[i] != 0)
 	{
 		dest[i] = src[i];
@@ -67,4 +69,17 @@ char	*ft_recalloc(char *src, size_t bytes, int iscalloc)
 	ft_strncpy(src, tmp, ft_strlen(tmp));
 	free(tmp);
 	return (src);
+}
+
+void	ft_freegnl(int fd)
+{
+	char	*str;
+
+	str = get_next_line(fd);
+	while (str)
+	{
+		free(str);
+		str = get_next_line(fd);
+	}
+	
 }

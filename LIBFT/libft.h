@@ -6,12 +6,13 @@
 /*   By: mscheman <mscheman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:56:54 by mscheman          #+#    #+#             */
-/*   Updated: 2024/01/24 23:50:28 by mscheman         ###   ########.fr       */
+/*   Updated: 2024/02/07 15:19:49 by mscheman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
 # include <unistd.h>
 # include <stdlib.h>
 
@@ -19,7 +20,6 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-	struct s_list	*target;
 }	t_list;
 
 int		ft_isalpha(int c);
@@ -37,6 +37,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+char	*ft_strctn(char *str, char *find);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);

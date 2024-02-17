@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mscheman <mathieu.petru@gmail.com>         +#+  +:+       +#+         #
+#    By: mscheman <mscheman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/01 14:21:30 by mscheman          #+#    #+#              #
-#    Updated: 2023/12/14 13:31:12 by mscheman         ###   ########.fr        #
+#    Updated: 2024/02/07 14:32:21 by mscheman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ LIBFT =	LIBFT/ft_isdigit.c \
 		LIBFT/ft_bzero.c \
 		LIBFT/ft_strlcat.c \
 		LIBFT/ft_toupper.c \
+		LIBFT/ft_strctn.c \
 
 LIST =	LIST/ft_lstdelone_bonus.c \
 		LIST/ft_lstnew_bonus.c \
@@ -115,5 +116,3 @@ gnl: $(NAME)
 
 full: print gnl list $(LIBFT_OBJ)
 	ar rcs $(NAME) $(LIBFT_OBJ)
-
-.SILENT: print, list
