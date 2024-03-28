@@ -6,14 +6,15 @@
 #    By: mscheman <mscheman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/29 15:55:04 by mscheman          #+#    #+#              #
-#    Updated: 2024/02/17 14:38:00 by mscheman         ###   ########.fr        #
+#    Updated: 2024/03/12 00:44:33 by mscheman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 MAKEFLAGS += --silent
 
 GNL =	get_next_line_bonus.c \
-		get_next_line_utils_bonus.c
+		get_next_line_utils_bonus.c \
+		slurp.c
 
 GNL_OBJ = $(GNL:.c=.o)
 

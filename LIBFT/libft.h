@@ -6,7 +6,7 @@
 /*   By: mscheman <mscheman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:56:54 by mscheman          #+#    #+#             */
-/*   Updated: 2024/02/07 15:19:49 by mscheman         ###   ########.fr       */
+/*   Updated: 2024/03/07 17:11:47 by mscheman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 char	*ft_strctn(char *str, char *find);
 char	*ft_strchr(const char *s, int c);
+int		ft_strcount(char *str, char c);
 char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);

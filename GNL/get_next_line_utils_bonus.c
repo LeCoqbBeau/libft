@@ -6,7 +6,7 @@
 /*   By: mscheman <mscheman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 15:32:17 by mscheman          #+#    #+#             */
-/*   Updated: 2024/02/17 14:36:10 by mscheman         ###   ########.fr       */
+/*   Updated: 2024/03/24 15:09:06 by mscheman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,4 @@ void	ft_freegnl(int fd)
 		free(str);
 		str = get_next_line(fd);
 	}
-	
 }

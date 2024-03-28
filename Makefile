@@ -6,7 +6,7 @@
 #    By: mscheman <mscheman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/01 14:21:30 by mscheman          #+#    #+#              #
-#    Updated: 2024/02/07 14:32:21 by mscheman         ###   ########.fr        #
+#    Updated: 2024/03/12 00:55:29 by mscheman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ MAKEFLAGS += --silent
 
 LIBFT =	LIBFT/ft_isdigit.c \
 		LIBFT/ft_strchr.c \
+		LIBFT/ft_strcount.c \
 		LIBFT/ft_memchr.c \
 		LIBFT/ft_isalnum.c \
 		LIBFT/ft_strtrim.c \
@@ -59,8 +60,8 @@ LIST =	LIST/ft_lstdelone_bonus.c \
 		LIST/ft_lstmap_bonus.c \
 		LIST/ft_lstsize_bonus.c \
 
-LIST_OBJ = $(LIST:.c=.o)
 LIBFT_OBJ = $(LIBFT:.c=.o)
+LIST_OBJ = $(LIST:.c=.o)
 
 PRINTF_LIB =	libftprintf.a
 PRINTF_OBJ =	ft_printf.o \
@@ -68,7 +69,8 @@ PRINTF_OBJ =	ft_printf.o \
 
 GNL_LIB =	libftgnl.a
 GNL_OBJ =	get_next_line_bonus.o \
-			get_next_line_utils_bonus.o
+			get_next_line_utils_bonus.o \
+			slurp.o \
 
 NAME = libft.a
 
@@ -105,6 +107,7 @@ print: $(NAME)
 	ar rcs $(NAME) $(PRINTF_OBJ)
 	rm -f $(PRINTF_OBJ)
 	mv $(PRINTF_LIB) -t PRINTF/
+
 
 gnl: $(NAME)
 	make -C ./GNL
