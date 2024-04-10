@@ -22,7 +22,7 @@ NAME = libftprintf.a
 CC_FLAGS = -Wall -Werror -Wextra
 
 %.o:%.c
-	clang $(CC_FLAGS) $< -c -o $@
+	cc $(CC_FLAGS) $< -c -o $@
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
